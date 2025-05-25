@@ -6,18 +6,22 @@ pygame.init
 
 largura = 640
 altura = 480
+x = largura/2
+y = 0
 
 tela = pygame.display.set_mode((largura, altura))
+pygame.display.set_caption("Jogo")
+relogio = pygame.time.Clock() # função para conseguir definir o FPS
 
 while True:
-    # Calcular as regras:
-    
+    # Calcular as regras
+    relogio.tick(30) # define o FPS
+    if y - 50 >= altura:
+        y = 0
+    y += 5
     # Pintar
     tela.fill((0, 0, 0))
-    pygame.display.set_caption("Jogo")
-    pygame.draw.circle(tela, (255, 0, 255), (220, 265), 30, 0)
-    pygame.draw.rect(tela, (255, 0, 0), (320, 240, 50, 50))
-    pygame.draw.line(tela, (255, 255, 0), (390, 0), (390, 600), 5)
+    pygame.draw.rect(tela, (255, 0, 0), (x, y, 50, 50))
     pygame.display.update()
     
     # Eventos
