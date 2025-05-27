@@ -58,6 +58,13 @@ class Pacman:
                     self.vel_y = 0
                 elif event.key == pygame.K_DOWN:
                     self.vel_y = 0
+    def processar_eventos_mouse(self, eventos):
+        delay = 100
+        for event in eventos:
+            if event.type == pygame.MOUSEMOTION:
+                mouse_x, mouse_y = event.pos
+                self.coluna = (mouse_x - self.centro_x) / delay
+                self.linha = (mouse_y - self.centro_y) / delay
         
 if __name__ == "__main__":
     pacman = Pacman()
@@ -78,3 +85,4 @@ if __name__ == "__main__":
             if event.type == pygame.QUIT:
                 exit()
             pacman.processar_eventos(eventos)
+            pacman.processar_eventos_mouse(eventos)
