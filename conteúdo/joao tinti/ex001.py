@@ -7,13 +7,16 @@ pygame.init
 pygame.font.init()
 pygame.mixer.init()
 
+pygame.mixer.music.set_volume(0.1)
 musica_de_fundo = pygame.mixer.music.load("joao tinti\musicas\BoxCat Games - CPU Talk.mp3")
 pygame.mixer.music.play(-1)
 
+barulho_colisao = pygame.mixer.Sound("joao tinti\musicas\smw_coin.wav")
+
 largura = 640
 altura = 480
-x = largura/2
-y = largura/2
+x = largura//2
+y = largura//2
 
 x_azul = randint(50, 590)
 y_azul = randint(50, 430)
@@ -40,6 +43,7 @@ while True:
         x_azul = randint(50, 590)
         y_azul = randint(50, 430)
         pontos += 1
+        barulho_colisao.play()
     
     # Eventos
     for event in pygame.event.get():
