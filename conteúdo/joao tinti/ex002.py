@@ -6,29 +6,37 @@ class Sapo(pygame.sprite.Sprite):
     def __init__(self,):
         super().__init__()
         self.sprites = []
-        self.caminhos = [
-            os.path.join(os.path.dirname(__file__), "images", "attack_1.png"),
-            os.path.join(os.path.dirname(__file__), "images", "attack_2.png"),
-            os.path.join(os.path.dirname(__file__), "images", "attack_3.png"),
-            os.path.join(os.path.dirname(__file__), "images", "attack_4.png"),
-            os.path.join(os.path.dirname(__file__), "images", "attack_5.png"),
-            os.path.join(os.path.dirname(__file__), "images", "attack_6.png"),
-            os.path.join(os.path.dirname(__file__), "images", "attack_7.png"),
-            os.path.join(os.path.dirname(__file__), "images", "attack_8.png"),
-            os.path.join(os.path.dirname(__file__), "images", "attack_9.png"),
-            os.path.join(os.path.dirname(__file__), "images", "attack_10.png"),
-            ]
+        # self.caminhos = [
+        #     os.path.join(os.path.dirname(__file__), "images", "attack_1.png"),
+        #     os.path.join(os.path.dirname(__file__), "images", "attack_2.png"),
+        #     os.path.join(os.path.dirname(__file__), "images", "attack_3.png"),
+        #     os.path.join(os.path.dirname(__file__), "images", "attack_4.png"),
+        #     os.path.join(os.path.dirname(__file__), "images", "attack_5.png"),
+        #     os.path.join(os.path.dirname(__file__), "images", "attack_6.png"),
+        #     os.path.join(os.path.dirname(__file__), "images", "attack_7.png"),
+        #     os.path.join(os.path.dirname(__file__), "images", "attack_8.png"),
+        #     os.path.join(os.path.dirname(__file__), "images", "attack_9.png"),
+        #     os.path.join(os.path.dirname(__file__), "images", "attack_10.png"),
+        #     ]
         
-        self.sprites.append(pygame.image.load(self.caminhos[0]))
-        self.sprites.append(pygame.image.load(self.caminhos[1]))
-        self.sprites.append(pygame.image.load(self.caminhos[2]))
-        self.sprites.append(pygame.image.load(self.caminhos[3]))
-        self.sprites.append(pygame.image.load(self.caminhos[4]))
-        self.sprites.append(pygame.image.load(self.caminhos[5]))
-        self.sprites.append(pygame.image.load(self.caminhos[6]))
-        self.sprites.append(pygame.image.load(self.caminhos[7]))
-        self.sprites.append(pygame.image.load(self.caminhos[8]))
-        self.sprites.append(pygame.image.load(self.caminhos[9]))
+        # self.sprites.append(pygame.image.load(self.caminhos[0]))
+        # self.sprites.append(pygame.image.load(self.caminhos[1]))
+        # self.sprites.append(pygame.image.load(self.caminhos[2]))
+        # self.sprites.append(pygame.image.load(self.caminhos[3]))
+        # self.sprites.append(pygame.image.load(self.caminhos[4]))
+        # self.sprites.append(pygame.image.load(self.caminhos[5]))
+        # self.sprites.append(pygame.image.load(self.caminhos[6]))
+        # self.sprites.append(pygame.image.load(self.caminhos[7]))
+        # self.sprites.append(pygame.image.load(self.caminhos[8]))
+        # self.sprites.append(pygame.image.load(self.caminhos[9]))
+        
+        self.caminhos = [
+            os.path.join(os.path.dirname(__file__), "images", f"attack_{i}.png")
+            for i in range(1, 11)
+        ]
+        
+        for caminho in self.caminhos:
+            self.sprites.append(pygame.image.load(caminho))
         
         self.atual = 0
         self.image = self.sprites[self.atual]
